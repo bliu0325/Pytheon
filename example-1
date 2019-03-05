@@ -1,0 +1,39 @@
+import matplotlib.pyplot as plt
+import numpy as np
+Y_MIN = 7
+Y_MAX = 20
+x1 = [1,2,3,4,5,6,7,8]
+y1 = [1,3,5,7,10,15,20,22]
+x2 = [0]
+y2 = [0]
+
+m = 0
+for index in range(len(x1)):
+    if y1[index] > Y_MIN and y1[index] < Y_MAX:
+        if m == 0:
+            x2[m] = x1[index]
+            y2[m] = y1[index]
+        else:
+            x2.append(x1[index])
+            y2.append(y1[index])
+
+        m = m + 1
+
+#繪圖表格相關資訊
+plt.title("This is Title", fontsize=18)
+plt.xlabel('X axis', fontsize=18)
+plt.ylabel('Y axis', fontsize=18)
+
+plt.xlim((0,10))  #x軸最小、大值
+plt.ylim((0,40)) #y軸最小、大值
+
+plt.plot(x1,y1,color='green',label='Label 1')
+plt.plot(x2,y2,color='red',label='Lable 2')
+plt.legend(loc = 'upper right')
+
+print(x1)
+print(y1)
+print(x2)
+print(y2)
+
+plt.show()
